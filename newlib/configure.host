@@ -235,7 +235,7 @@ case "${host_cpu}" in
 	default_newlib_io_long_long="yes"
 	newlib_cflags="${newlib_cflags} -ffunction-sections -fdata-sections "
 	;;
-  sh | sh64)
+  sh | sh4 | sh64)
 	machine_dir=sh
 	;;
   sparc*)
