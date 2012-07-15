@@ -21,6 +21,9 @@ typedef long _off_t;
 typedef unsigned long long __dev_t;
 #else
 #ifndef __dev_t_defined
+// XXX devkitARM does it like so:
+// typedef int __dev_t;
+// devkitPPC does it with short. What should we do?
 typedef short __dev_t;
 #endif
 #endif

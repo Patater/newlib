@@ -26,7 +26,7 @@ _DEFUN(_fseeko_r, (ptr, fp, offset, whence),
        _off_t offset      _AND
        int whence)
 {
-  return _fseek_r (ptr, fp, (long)offset, whence);
+  return _fseek_r (ptr, fp, offset, whence);
 }
 
 #ifndef _REENT_ONLY
@@ -38,7 +38,7 @@ _DEFUN(fseeko, (fp, offset, whence),
        int whence)
 {
   /* for now we simply cast since off_t should be long */
-  return _fseek_r (_REENT, fp, (long)offset, whence);
+  return _fseek_r (_REENT, fp, offset, whence);
 }
 
 #endif /* !_REENT_ONLY */

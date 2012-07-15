@@ -220,9 +220,11 @@ _DEFUN(__sinit, (s),
   std (s->_stdout, __SWR | __SLBF, 1, s);
 #endif
 
+  // XXX This seems weird.
   /* POSIX requires stderr to be opened for reading and writing, even
      when the underlying fd 2 is write-only.  */
-  std (s->_stderr, __SRW | __SNBF, 2, s);
+  //std (s->_stderr, __SRW | __SNBF, 2, s);
+  std (s->_stderr, __SWR | __SLBF, 2, s);
 
   __sinit_lock_release ();
 }

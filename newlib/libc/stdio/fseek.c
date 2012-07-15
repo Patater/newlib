@@ -120,7 +120,7 @@ int
 _DEFUN(_fseek_r, (ptr, fp, offset, whence),
        struct _reent *ptr _AND
        register FILE *fp  _AND
-       long offset        _AND
+       off_t offset        _AND
        int whence)
 {
   _fpos_t _EXFNPTR(seekfn, (struct _reent *, _PTR, _fpos_t, int));
@@ -388,7 +388,7 @@ dumb:
 int
 _DEFUN(fseek, (fp, offset, whence),
        register FILE *fp _AND
-       long offset       _AND
+       off_t offset       _AND
        int whence)
 {
   return _fseek_r (_REENT, fp, offset, whence);

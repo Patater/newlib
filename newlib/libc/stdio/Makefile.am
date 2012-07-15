@@ -54,6 +54,7 @@ GENERAL_SOURCES = \
 	rename.c			\
 	rewind.c			\
 	rget.c				\
+	rmdir.c				\
 	scanf.c			\
 	sccl.c				\
 	setbuf.c			\

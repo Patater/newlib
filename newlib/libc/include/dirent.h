@@ -6,7 +6,7 @@ extern "C" {
 #include <sys/dirent.h>
 
 #if !defined(MAXNAMLEN) && !defined(_POSIX_SOURCE)
-#define MAXNAMLEN 1024
+#define MAXNAMLEN 4096
 #endif
 
 #ifdef __cplusplus

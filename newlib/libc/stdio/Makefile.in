@@ -79,6 +79,7 @@ am__objects_1 = lib_a-clearerr.$(OBJEXT) lib_a-fclose.$(OBJEXT) \
 	lib_a-refill.$(OBJEXT) lib_a-remove.$(OBJEXT) \
 	lib_a-rename.$(OBJEXT) lib_a-rewind.$(OBJEXT) \
 	lib_a-rget.$(OBJEXT) lib_a-scanf.$(OBJEXT) \
+	lib_a-rmdir.$(OBJEXT) \
 	lib_a-sccl.$(OBJEXT) lib_a-setbuf.$(OBJEXT) \
 	lib_a-setbuffer.$(OBJEXT) lib_a-setlinebuf.$(OBJEXT) \
 	lib_a-setvbuf.$(OBJEXT) lib_a-siprintf.$(OBJEXT) \
@@ -148,7 +149,7 @@ am__objects_4 = clearerr.lo fclose.lo fdopen.lo feof.lo ferror.lo \
 	getc_u.lo getchar_u.lo getdelim.lo getline.lo gets.lo \
 	iprintf.lo iscanf.lo makebuf.lo perror.lo printf.lo putc.lo \
 	putchar.lo putc_u.lo putchar_u.lo puts.lo refill.lo remove.lo \
-	rename.lo rewind.lo rget.lo scanf.lo sccl.lo setbuf.lo \
+	rename.lo rewind.lo rget.lo rmdir.lo scanf.lo sccl.lo setbuf.lo \
 	setbuffer.lo setlinebuf.lo setvbuf.lo siprintf.lo siscanf.lo \
 	sniprintf.lo snprintf.lo sprintf.lo sscanf.lo stdio.lo \
 	tmpfile.lo tmpnam.lo ungetc.lo vdiprintf.lo vdprintf.lo \
@@ -410,6 +411,7 @@ GENERAL_SOURCES = \
 	rename.c			\
 	rewind.c			\
 	rget.c				\
+	rmdir.c				\
 	scanf.c			\
 	sccl.c				\
 	setbuf.c			\
@@ -957,6 +959,12 @@ lib_a-rget.o: rget.c
 
 lib_a-rget.obj: rget.c
 	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib_a_CFLAGS) $(CFLAGS) -c -o lib_a-rget.obj `if test -f 'rget.c'; then $(CYGPATH_W) 'rget.c'; else $(CYGPATH_W) '$(srcdir)/rget.c'; fi`
+
+lib_a-rmdir.o: rmdir.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib_a_CFLAGS) $(CFLAGS) -c -o lib_a-rmdir.o `test -f 'rmdir.c' || echo '$(srcdir)/'`rmdir.c
+
+lib_a-rmdir.obj: rmdir.c
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib_a_CFLAGS) $(CFLAGS) -c -o lib_a-rmdir.obj `if test -f 'rmdir.c'; then $(CYGPATH_W) 'rmdir.c'; else $(CYGPATH_W) '$(srcdir)/rmdir.c'; fi`
 
 lib_a-scanf.o: scanf.c
 	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lib_a_CFLAGS) $(CFLAGS) -c -o lib_a-scanf.o `test -f 'scanf.c' || echo '$(srcdir)/'`scanf.c

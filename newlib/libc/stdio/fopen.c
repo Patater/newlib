@@ -151,6 +151,9 @@ _DEFUN(_fopen_r, (ptr, file, mode),
 
   _flockfile (fp);
 
+  flags &= ~(__SLBF | __SNBF | __SMBF);
+  flags |= __SNBF;
+
   fp->_file = f;
   fp->_flags = flags;
   fp->_cookie = (_PTR) fp;

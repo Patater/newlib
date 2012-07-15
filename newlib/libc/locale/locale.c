@@ -188,7 +188,6 @@ No supporting OS subroutines are required.
 #define _LC_LAST      7
 #define ENCODING_LEN 31
 
-int __EXPORT __mb_cur_max = 1;
 
 int __nlocale_changed = 0;
 int __mlocale_changed = 0;
@@ -218,6 +217,10 @@ static char *categories[_LC_LAST] = {
   "LC_MESSAGES",
 };
 
+#ifdef __CYGWIN__
+#define __DEFAULT_UTF8__
+#endif
+
 /*
  * Default locale per POSIX.  Can be overridden on a per-target base.
  */
@@ -236,7 +239,7 @@ char __default_locale[ENCODING_LEN + 1] = DEFAULT_LOCALE;
 static char current_categories[_LC_LAST][ENCODING_LEN + 1] = {
     "C",
     "C",
-#ifdef __CYGWIN__ /* Cygwin starts with LC_CTYPE set to "C.UTF-8". */
+#ifdef __DEFAULT_UTF8__ /* Cygwin starts with LC_CTYPE set to "C.UTF-8". */
     "C.UTF-8",
 #else
     "C",
@@ -260,10 +263,12 @@ static const char *__get_locale_env(struct _reent *, int);
 
 #endif /* _MB_CAPABLE */
 
-#ifdef __CYGWIN__
-static char lc_ctype_charset[ENCODING_LEN + 1] = "UTF-8";
+#ifdef __DEFAULT_UTF8__
+static char lc_ctype_charset[ENCODING_LEN + 1] = "C.UTF-8";
+int __EXPORT __mb_cur_max = 6;
 #else
 static char lc_ctype_charset[ENCODING_LEN + 1] = "ASCII";
+int __EXPORT __mb_cur_max = 1;
 #endif
 static char lc_message_charset[ENCODING_LEN + 1] = "ASCII";
 static int lc_ctype_cjk_lang = 0;

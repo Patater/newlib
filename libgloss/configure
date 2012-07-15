@@ -2545,6 +2545,8 @@ if test "${config_libnosys}" = "true"; then
 
 fi
 
+subdirs="$subdirs libsysbase"
+
 DEPDIR="${am__leading_dot}deps"
 
 ac_config_commands="$ac_config_commands depfiles"

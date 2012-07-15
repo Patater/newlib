@@ -94,7 +94,8 @@ _DEFUN(__sfvwrite_r, (ptr, fp, uio),
       do
 	{
 	  GETIOV (;);
-	  w = fp->_write (ptr, fp->_cookie, p, MIN (len, BUFSIZ));
+	  //w = fp->_write (ptr, fp->_cookie, p, MIN (len, BUFSIZ));
+	  w = fp->_write (ptr, fp->_cookie, p, len);
 	  if (w <= 0)
 	    goto err;
 	  p += w;
